@@ -1,0 +1,51 @@
+export const UsersData = [
+    {
+        image: 'Tyler-Hoechlin.jpg',
+        fullName: 'Tyler Hoechlin',
+        email: 'tylerhoechlin@gmail.com',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys since the 1500s, when ',
+        rate: 4.5 ,
+    },
+    {
+        image: 'Tyler-posey.webp',
+        fullName: 'Tyler Posey',
+        email: 'tylerposey@gmail.com',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys since the 1500s, when ',
+        rate: 4 ,
+    },
+    {
+        image: 'tom-cruise.jpeg',
+        fullName: 'Tom Cruise',
+        email: 'tomcruise@gmail.com',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys since the 1500s, when ',
+        rate: 5 ,
+    },
+    {
+        image: 'Ryan-Gosling.jpg',
+        fullName: 'Ryan Gosling',
+        email: 'ryangosling@gmail.com',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys since the 1500s, when ',
+        rate: 4 ,
+    },
+    {
+        image: 'jason-statham.jpg',
+        fullName: 'Jason Statham',
+        email: 'jasonstatham@gmail.com',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys since the 1500s, when ',
+        rate: 4.5 ,
+    },
+    {
+        image: 'holland-roden.webp',
+        fullName: 'Holland Roden',
+        email: 'hollandroden@gmail.com',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys since the 1500s, when ',
+        rate: 3 ,
+    },
+    {
+        image: 'crystal-reed.jpg',
+        fullName: 'Crystal Reed',
+        email: 'crystalreed@gmail.com',
+        message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys since the 1500s, when ',
+        rate: 3 ,
+    },
+]
