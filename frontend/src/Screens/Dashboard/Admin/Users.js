@@ -4,7 +4,10 @@ import Table2 from "../../../Components/Table2";
 import axios from "axios";
 
 function Users() {
+
+  
   const [data,setData]=useState([])
+  
   useEffect(()=>{
     axios.get("http://localhost:5555/api/user")
     .then((res)=>{

@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Layout from "../Layout/Layout";
 import Filtres from "../Components/Filtres";
-import { Movies } from "./../Data/MovieData";
+
 import Movie from "../Components/Movie";
 import { CgSpinner } from "react-icons/cg";
+import axios from "axios";
 
 function MoviesPage() {
   const maxPage = 4;
@@ -11,6 +12,19 @@ function MoviesPage() {
   const HandleLoadingMore = () => {
     setPage(page + maxPage);
   };
+  const [Movies,setMovies]=useState([])
+
+  useEffect(()=>{
+    axios.get("http://localhost:5555/api/movie/getmovie")
+    .then((res)=>{
+   
+      setMovies(res.data.movies)
+   
+      
+    })
+  },[])
+
+
   return (
     <Layout>
       <div className="min-height-screen container mx-auto px-2 my-6">

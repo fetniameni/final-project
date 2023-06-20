@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from './../Layout/Layout';
 import Banner from './../Components/Home/Banner';
 import PopularMovies from '../Components/Home/PopularMovies';
@@ -6,11 +6,16 @@ import Promos from '../Components/Home/Promos';
 import TopRated from '../Components/Home/TopRated';
 
 function HomeScreen() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  }
   return (
-    <Layout>
+    <Layout handleSearch={handleSearch} searchQuery={searchQuery}>
+
       <div className='container mx-auto min-h-screen px-2 mb-6'>
         <Banner/>
-        <PopularMovies/>
+        <PopularMovies searchQuery={searchQuery}/>
         <Promos/>
         <TopRated/>
         

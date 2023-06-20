@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Movies } from "../../Data/MovieData";
+
 import FlexMovieItems from "../FlexMovieItems";
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import axios from "axios";
 
 function Banner() {
+  const [Movies,setMovies]=useState([])
+
+  useEffect(()=>{
+    axios.get("http://localhost:5555/api/movie/getmovie")
+    .then((res)=>{
+   
+      setMovies(res.data.movies)
+   
+      
+    })
+  },[])
+
+
   return (
     <div className="relative w-full">
       <Swiper

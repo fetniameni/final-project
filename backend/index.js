@@ -3,6 +3,7 @@ const connectdb = require("./config/configDB")
 const authRouter = require("./routers/authRouter")
 const movieRouter = require("./routers/movieRouter")
 const userRouter=require('./routers/userRouter')
+
 const app = express()
 const cors = require("cors");
 require("dotenv").config()

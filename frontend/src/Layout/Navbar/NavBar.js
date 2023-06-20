@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSearch, FaHeart } from "react-icons/fa";
 import { CgUser } from "react-icons/cg";
 import logo from '../../MovieBox.png'
-function NavBar() {
+import {Movies} from "../../Data/MovieData";
+
+function NavBar({handleSearch,searchQuery}) {
+
   const hover = "hover:text-subMain transitions text-white";
   const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
+
+ 
+  const [filteredMovies, setFilteredMovies] = useState(Movies);
+
+ 
+    
+  
+  
+
+ 
+
+
+
   return (
     <>
       <div className="bg-main shadow-md sticky top-0 z-20">
+      
         <div className="container mx-auto py-6 px-2 lg:grid gap-10 grid-cols-7 justify-between items-center">
           {/* Logo */}
           <div className="col-span-1 lg:block hidden">
@@ -34,7 +51,9 @@ function NavBar() {
                 type="text"
                 placeholder="Search Movie Name from here"
                 className="font-medium placeholder:text-border text-sm w-11/12 h-12 bg-transparent border-none px-2 text-black "
-              />
+                value={searchQuery} onChange={(e)=>handleSearch(e)}
+             />
+
             </form>
           </div>
           {/* menus */}
@@ -54,7 +73,7 @@ function NavBar() {
             <NavLink to="/favorites" className={`${Hover} relative`}>
               <FaHeart className="w-6 h-6" />
               <div className="w-5 h-5 flex-colo rounded-full text-xs bg-subMain text-white absolute -top-5 -right-1">
-                3
+                0
               </div>
             </NavLink>
           </div>

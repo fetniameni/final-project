@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import AboutUs from "./Screens/AboutUs";
 import AOS from "aos";
@@ -20,9 +20,24 @@ import Users from "./Screens/Dashboard/Admin/Users";
 import AddMovie from "./Screens/Dashboard/Admin/AddMovie";
 import ScrollOnTop from "./ScrollOnTop";
 import DrawerContext from "./Context/DrawerContext";
+import axios from "axios";
 
 
 function App() {
+  const [user,setData]=useState({ fullName: '', email: '' })
+  
+
+
+
+  useEffect(() => {
+    var id=localStorage.getItem("id")
+    axios
+      .get(`http://localhost:5555/api/user/${id}`,)
+      .then((res) => {
+        setData(res.data.data);
+      });
+  }, []);
+  
   AOS.init();
   return (
     <DrawerContext>
@@ -36,7 +51,7 @@ function App() {
           <Route path="/watch/:id" element={<WatchPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile user={user}/>} />
           <Route path="/password" element={<Password />} />
           <Route path="/favorites" element={<FavoritesMovies />} />
           <Route path="/movieslist" element={<MoviesList />} />

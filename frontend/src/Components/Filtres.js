@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react";
-import { CategoriesData } from "./../Data/CategoriesData";
 import { Listbox, Transition } from "@headlessui/react";
 import { FaAngleDown, FaCheck } from "react-icons/fa";
 
@@ -28,9 +27,26 @@ const RatesData = [
   { title: "4 Star" },
   { title: "5 Star" },
 ];
+const CategoriesData = [
+  { title: "Category" },
+  { title: 'Romantic' },
+  { title: 'Action' },
+  { title: 'Horror' },
+  { title: 'Comedy' },
+  { title: 'Adventure' },
+  { title: 'Sports' },
+  { title: 'Fantasy' },
+  { title: 'Musicals' },
+  { title: 'Drama' },
+  { title: 'Thriller' },
+  { title: 'Western' },
+  { title: 'Historical' },
+  { title: 'Science' },
+  { title: 'Mystery' },
+];
 
 function Filtres() {
-  const [category, setCategory] = useState({ title: "Category" });
+  const [category, setCategory] = useState(CategoriesData[0]);
   const [year, setYear] = useState(YearData[0]);
   const [times, setTimes] = useState(TimesData[0]);
   const [rates, setRates] = useState(RatesData[0]);

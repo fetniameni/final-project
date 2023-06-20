@@ -2,31 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import {Link, useNavigate, useParams } from "react-router-dom";
+import {Link, Navigate, useNavigate, useParams } from "react-router-dom";
 const Head = "text-xs text-left text-main font-semibold px-6 py-2 uppercase";
 const Text = "text-sm text-left leading-6 whitespace-nowrap px-5 py-3";
 
 //rows
 
 const Rows = (data, i, users, OnEditFunction) => {
-
   const navigate = useNavigate();
-    
-  const [fullName,setFullName]=useState("")
-  const [email,setEmail]=useState("")
-
-  const handleUpdateUser = ({_id}) => {
-    axios
-      .put(`http://localhost:5555/api/user/${_id}`, {fullName,email})
-      .then(() => {
-        alert("user modifié avec succes ! ");
-      })
-      .then((res) => {
-              console.log(res);
-              navigate("/profile");
-            });
-  };
-
+ 
+  const handleButtonClick = (id) => {
+    navigate(`/profile`)
+    localStorage.setItem("id",id)
+   };
 
   const handleDelete = async (id) => {
     await axios
@@ -59,9 +47,9 @@ const Rows = (data, i, users, OnEditFunction) => {
             <button className="bg-subMain text-white rounded flex-colo w-6 h-6 "  onClick={(event)=>handleDelete(data._id)}>
               <MdDelete />
             </button>
-            <button className="bg-subMain text-white rounded flex-colo w-6 h-6 " onClick={(event)=>console.log(data._id) } >
-            edit
-              
+            <button className="bg-subMain text-white rounded flex-colo w-6 h-6 " onClick={()=>handleButtonClick(data._id)} >
+            Edit <FaEdit className="text-green-500" />
+         
             </button>
           </td>
         </>
@@ -91,7 +79,7 @@ const Rows = (data, i, users, OnEditFunction) => {
 function Table2({ data, users, OnEditFunction }) {
   return (
     <div className="overflow-x-scroll overflow-hidden relative w-full">
-      {console.log(data)}
+    
       <table className="w-full table-auto border border-border divide-y divide-border">
         <thead>
           <tr className="bg-dryGray">

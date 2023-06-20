@@ -3,16 +3,17 @@ import SideBar from '../SideBar'
 import Table from '../../../Components/Table'
 import axios from 'axios'
 
-
 function MoviesList() {
-  const [movie,setData]=useState([])
+  const [data,setData]=useState([])
+
   useEffect(()=>{
-    axios.get("http://localhost:5555/api/movie/getmovie/")
+    axios.get("http://localhost:5555/api/movie/getmovie")
     .then((res)=>{
-      setData(res.movie)
-      console.log(movie)
+      setData(res.data)
+       console.log(res.data.movies)
     })
   },[])
+  
   
   return (
     <SideBar>
@@ -23,7 +24,8 @@ function MoviesList() {
                     Delete All
                 </button>
             </div>
-            <Table data={movie} admin={true}/>
+            <Table data={data} admin={true} />
+            
         </div>
     </SideBar>
   )

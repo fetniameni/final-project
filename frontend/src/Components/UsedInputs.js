@@ -30,7 +30,7 @@ export const Select = ({ label, options, onChange }) => {
   );
 };
 
-export const Input = ({ label, placeholder, type, bg, onChange }) => {
+export const Input = ({ label, placeholder, type, bg, onChange, value }) => {
   return (
     <div className="text-sm w-full">
       <label className="text-border font-semibold">{label}</label>
@@ -38,14 +38,16 @@ export const Input = ({ label, placeholder, type, bg, onChange }) => {
         required
         type={type}
         placeholder={placeholder}
-        className={`w-full text-sm mt-2 py-5 border border-border rounded  text-white ${
+        className={`w-full text-sm mt-2 py-5 border border-border rounded text-white ${
           bg ? "bg-main" : "bg-dry"
-        } `}
+        }`}
         onChange={onChange}
+        value={value}
       />
     </div>
   );
 };
+
 
 
 
